@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mis Departamentos</title>
-    <meta name="description" content="Departamentos temporarios en alquiler, modernos y bien ubicados.">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <meta name="description" content="Departamentos temporarios en alquiler, modernos y bien ubicados." />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-          integrity="Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
-          crossorigin="anonymous">
-
-
-
-    <!-- Para Google Maps / SEO -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Mis Departamentos en Alquiler">
-    <meta property="og:description" content="Mirá nuestras opciones de alquiler temporario.">
-    <meta property="og:image" content="images/preview.jpg">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <style>
-        .opiniones-swiper {
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            max-width: 100%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding-top: 80px;
+            background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.9)),
+            url('images/patagonia-argentina-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .image-wrapper {
             width: 100%;
+            aspect-ratio: 1 / 1;
             overflow: hidden;
+            border-top-left-radius: 0.375rem;
+            border-top-right-radius: 0.375rem;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .opiniones-swiper .swiper-wrapper {
@@ -36,66 +51,130 @@
         }
 
         .opiniones-swiper .swiper-slide {
-            width: auto !important;
-            flex-shrink: 0;
-            flex-grow: 0;
+            flex: 0 0 auto;
             min-width: 250px;
             max-width: 100%;
-            box-sizing: border-box;
         }
 
-        .opiniones-swiper .swiper-slide > div {
-            height: 100%;
+        .card {
+            width: 100%;
+        }
+
+        .container,
+        .row,
+        .col-12,
+        .col-md-6 {
+            max-width: 100%;
+        }
+
+        footer img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .navbar .nav-link i {
+            color: #25d366;
+        }
+
+        @media (max-width: 768px) {
+            #rotating-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar .container-fluid {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .container-fluid > * {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar .container-fluid img {
+                height: 50px;
+                margin-bottom: 0.5rem;
+            }
+
+            .navbar .nav-link {
+                justify-content: center;
+            }
+
+            .navbar .container-fluid > a,
+            .navbar .container-fluid > div {
+                margin-bottom: 0.25rem;
+            }
+
+            .list-inline {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .list-inline-item {
+                width: 45%;
+                text-align: center;
+            }
+        }
+
+        /* Asegura que el pie no se corte */
+        footer {
+            overflow-x: hidden;
+        }
+
+        /* Asegura que el desarrollador se vea en móviles */
+        footer p.text-center {
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        .navbar .fa-whatsapp::before {
+            content: "\f232"; /* Unicode de WhatsApp FA */
+            font-size: 1em !important;
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar bg-transparent border-bottom py-1 fixed-top w-100 shadow-sm backdrop-blur">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap">
-        <!-- Logo -->
-        <div class="bg-white bg-opacity-100 px-2 rounded">
-            <img src="images/logo-deptos-leloir.png" alt="Mis Departamentos" height="80">
+<!-- NAVBAR -->
+<nav class="navbar border-bottom py-2 fixed-top w-100 shadow-sm backdrop-blur">
+    <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap px-3">
+        <div class="px-2 rounded mb-2 mb-md-0">
+            <img id="logo-navbar" src="images/logo-deptos-leloir.png" alt="Mis Departamentos" height="60" style="cursor:pointer;" />
         </div>
 
-        <!-- Texto rotativo -->
-        <div class="text-center flex-grow-1 px-3">
+        <div class="text-center flex-grow-1 px-2 mb-2 mb-md-0">
             <span class="fw-medium text-dark" id="rotating-text">Administración</span>
         </div>
 
-        <!-- Links -->
-        <a href="https://wa.me/5493811234567" class="fs-5 nav-link text-dark d-flex align-items-center">
-            <i class="fab fa-whatsapp me-2" style="color: #246a42;"></i>Contacto
+        <a href="https://wa.me/5493811234567" class="fs-6 nav-link text-dark d-flex align-items-center pe-3">
+            <i class="fab fa-whatsapp me-2 text-success"></i>Contacto
         </a>
-
     </div>
 </nav>
 
 
-
+<!-- DEPARTAMENTOS -->
 <div class="container py-4">
     <h1 class="text-center mb-4">Departamentos en Alquiler</h1>
+    <div class="row g-4 justify-content-center">
 
-    <div class="row g-4">
-
-        <!-- Depto 2 -->
-        <div class="col-12 justify-content-center d-flex">
+        <!-- Depto 1 -->
+        <div class="col-12 col-md-6 col-lg-5">
             <a href="depto1.html" class="text-decoration-none text-dark">
-                <div class="card shadow mx-auto w-100 w-sm-75 w-md-50 w-lg-75">
+                <div class="card shadow h-100">
                     <div class="image-wrapper position-relative">
                         <div class="swiper depto-swiper" id="swiper-1">
-                            <div class="swiper-wrapper align-items-center">
-                                <div class="swiper-slide">
-                                    <img src="images/depto1-1.png" alt="Depto 1 Foto 1">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/depto1-2.avif" alt="Depto 1 Foto 2">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/depto1-3.avif" alt="Depto 1 Foto 3">
-                                </div>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="images/depto1-1.png" alt="Depto 1 Foto 1" /></div>
+                                <div class="swiper-slide"><img src="images/depto1-2.avif" alt="Depto 1 Foto 2" /></div>
+                                <div class="swiper-slide"><img src="images/depto1-3.avif" alt="Depto 1 Foto 3" /></div>
                             </div>
-                            <!-- Navigation buttons (outside wrapper!) -->
                             <div class="swiper-button-prev" id="prev-1"></div>
                             <div class="swiper-button-next" id="next-1"></div>
                         </div>
@@ -108,17 +187,15 @@
             </a>
         </div>
 
-        <div class="col-12 justify-content-center d-flex">
-            <a href="depto1.html" class="text-decoration-none text-dark">
-                <div class="card shadow w-80">
+        <!-- Depto 2 -->
+        <div class="col-12 col-md-6 col-lg-5">
+            <a href="depto2.html" class="text-decoration-none text-dark">
+                <div class="card shadow h-100">
                     <div class="image-wrapper position-relative">
                         <div class="swiper depto-swiper" id="swiper-2">
-                            <div class="swiper-wrapper align-items-center">
-                                <div class="swiper-slide">
-                                    <img src="images/coming-soon.jpg" alt="Depto 2 Foto 1">
-                                </div>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="images/coming-soon.jpg" alt="Depto 2 Foto 1" /></div>
                             </div>
-                            <!-- Navigation buttons (outside wrapper!) -->
                             <div class="swiper-button-prev" id="prev-2"></div>
                             <div class="swiper-button-next" id="next-2"></div>
                         </div>
@@ -134,150 +211,53 @@
     </div>
 </div>
 
-<section id="opiniones" class="py-5 mt-5 bg-light">
+<!-- OPINIONES -->
+<section id="opiniones" class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-4">Opiniones de Nuestros Huéspedes</h2>
-
         <div class="swiper opiniones-swiper">
             <div class="swiper-wrapper">
-
-                <!-- Opinión 1 -->
                 <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
-                        <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="mb-3">“Departamento impecable, cómodo y súper bien ubicado. Volvería sin dudas.”</p>
-                        <div class="text-end"><strong>— María, Buenos Aires</strong></div>
-                    </div>
-                </div>
-
-                <!-- Opinión 2 -->
-                <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
-                        <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <p class="mb-3">“Muy buena atención por parte del anfitrión. Todo limpio y prolijo.”</p>
-                        <div class="text-end"><strong>— Juan, Neuquén</strong></div>
-                    </div>
-                </div>
-
-                <!-- Opinión 3 -->
-                <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
-                        <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <p class="mb-3">“Excelente ubicación, buena vista y muy tranquilo. Volveré pronto.”</p>
-                        <div class="text-end"><strong>— Carla, Córdoba</strong></div>
-                    </div>
-                </div>
-
-                <!-- Opinión 4 -->
-                <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
-                        <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <p class="mb-3">“Muy tranquilo el edificio y todo como en las fotos. Recomendado.”</p>
-                        <div class="text-end"><strong>— Federico, Salta</strong></div>
-                    </div>
-                </div>
-
-                <!-- Opinión 5 -->
-                <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
-                        <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                        </div>
-                        <p class="mb-3">“Faltaban algunos utensilios pero en general todo excelente.”</p>
-                        <div class="text-end"><strong>— Rocío, Mendoza</strong></div>
-                    </div>
-                </div>
-
-                <!-- Opinión 6 -->
-                <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
-                        <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="mb-3">“Volvería sin dudarlo. Todo impecable y anfitrión muy atento.”</p>
-                        <div class="text-end"><strong>— Andrés, Rosario</strong></div>
-                    </div>
-                </div>
-
-                <!-- Opinión 7 -->
-                <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
-                        <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <p class="mb-3">“Buena ubicación pero algo ruidoso por la noche.”</p>
-                        <div class="text-end"><strong>— Laura, Córdoba</strong></div>
-                    </div>
-                </div>
-
-                <!-- Opinión 8 -->
-                <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
-                        <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                        </div>
-                        <p class="mb-3">“Muy limpio y luminoso. Le faltaba solo un espejo de cuerpo entero.”</p>
-                        <div class="text-end"><strong>— Julián, Tucumán</strong></div>
-                    </div>
-                </div>
-
-                <!-- Opinión 9 -->
-                <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
+                    <div class="p-4 border rounded bg-white shadow-sm h-100">
                         <div class="mb-2 text-warning">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                         </div>
-                        <p class="mb-3">“Excelente relación precio/calidad.”</p>
-                        <div class="text-end"><strong>— Camila, Catamarca</strong></div>
+                        <p>“Departamento impecable, cómodo y súper bien ubicado.”</p>
+                        <div class="text-end"><strong>— María, Buenos Aires</strong></div>
                     </div>
                 </div>
-
-                <!-- Opinión 10 -->
                 <div class="swiper-slide">
-                    <div class="border rounded p-4 h-100 bg-white shadow-sm">
+                    <div class="p-4 border rounded bg-white shadow-sm h-100">
                         <div class="mb-2 text-warning">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p class="mb-3">“Cumplió con lo necesario. Ideal para estadías cortas.”</p>
-                        <div class="text-end"><strong>— Florencia, La Rioja</strong></div>
+                        <p>“Excelente atención y limpieza. Volvería sin dudas.”</p>
+                        <div class="text-end"><strong>— Juan, Córdoba</strong></div>
                     </div>
                 </div>
-
+                <div class="swiper-slide">
+                    <div class="p-4 border rounded bg-white shadow-sm h-100">
+                        <div class="mb-2 text-warning">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p>“Buena ubicación, ambiente tranquilo.”</p>
+                        <div class="text-end"><strong>— Ana, Tucumán</strong></div>
+                    </div>
+                </div>
             </div>
-
+            <!-- Controles opcionales -->
+            <div class="swiper-pagination"></div>
         </div>
+
     </div>
 </section>
 
-
-
+<!-- FOOTER -->
 <footer class="bg-dark text-white py-4 mt-5">
     <div class="container">
-        <div class="row justify-content-between text-center text-md-start align-items-start">
-
-            <!-- Contacto compacto -->
+        <div class="row text-center text-md-start">
             <div class="col-md-6 mb-3">
-                <h5 class="mb-3">Contacto</h5>
+                <h5>Contacto</h5>
                 <ul class="list-unstyled small">
                     <li><i class="fas fa-envelope me-2"></i><a href="mailto:leloiramobladosneuquen@gmail.com" class="text-white text-decoration-none">leloiramobladosneuquen@gmail.com</a></li>
                     <li><i class="fas fa-phone me-2"></i><a href="tel:+5492994524509" class="text-white text-decoration-none">+54 9 299 452 4509</a></li>
@@ -285,79 +265,96 @@
                     <li><i class="fas fa-home me-2"></i>Leloir 929, Neuquén, Neuquén</li>
                 </ul>
             </div>
-
-            <!-- Formas de Pago compacto -->
-            <div class="col-md-4 mb-3">
-                <h5 class="mb-3">Formas de Pago</h5>
+            <div class="col-md-6 mb-3">
+                <h5>Formas de Pago</h5>
                 <ul class="list-inline small">
                     <li class="list-inline-item me-2"><i class="fas fa-money-bill-wave fa-lg"></i></li>
                     <li class="list-inline-item me-2"><i class="fas fa-qrcode fa-lg"></i></li>
                     <li class="list-inline-item me-2"><i class="fas fa-university fa-lg"></i></li>
-                    <li class="pr-2">
-                        <img src="images/mercado-pago-pluma.svg" alt="Mercado Pago" height="24" style="vertical-align: middle;">
+                    <li class="list-inline-item me-2">
+                        <img src="images/mercado-pago-pluma.svg" alt="Mercado Pago" height="24" />
                     </li>
                 </ul>
             </div>
         </div>
-
-        <hr class="border-light my-3">
-
+        <hr class="border-light my-3" />
         <p class="text-center small mb-0">
-            Desarrollado por
-            <a href="https://github.com/MiguelArgentina" target="_blank" class="text-white text-decoration-underline">
-                <i class="fa-brands fa-github"></i> Miguel Tucu Gomez
-            </a>
+            Desarrollado por <a href="https://github.com/MiguelArgentina" class="text-white text-decoration-underline" target="_blank"><i class="fab fa-github"></i> Miguel Tucu Gomez</a>
         </p>
     </div>
 </footer>
 
-
-
-
+<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="assets/js/script.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const frases = ["Administración", "Alquiler temporal", "Limpieza incluida", "Gestión profesional", "Reservá directo y ahorrá"];
+        const frases = ["Administración", "Alquiler temporal", "Limpieza incluida", "Gestión profesional", "Sin intermediarios"];
         const textElement = document.getElementById("rotating-text");
         let index = 0;
-
-        setInterval(() => {
-            index = (index + 1) % frases.length;
-            textElement.textContent = frases[index];
-        }, 3000);
-    });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const frases = ["Administración", "Alquiler temporal", "Limpieza incluida", "Gestión profesional", "Reservá directo y ahorrá"];
-        const textElement = document.getElementById("rotating-text");
-        let index = 0;
-
         setInterval(() => {
             index = (index + 1) % frases.length;
             textElement.textContent = frases[index];
         }, 3000);
 
-        new Swiper('.opiniones-swiper', {
+        // Opiniones Swiper
+        new Swiper(".opiniones-swiper", {
             loop: true,
             slidesPerView: 1,
             spaceBetween: 20,
             autoplay: {
                 delay: 5000,
-                disableOnInteraction: false,
+                disableOnInteraction: false
             },
             breakpoints: {
                 768: { slidesPerView: 2 },
                 992: { slidesPerView: 3 }
-            },
-            navigation: false
+            }
         });
+
+        // Swipers de departamentos
+        [1, 2].forEach(id => {
+            new Swiper(`#swiper-${id}`, {
+                loop: true,
+                navigation: {
+                    nextEl: `#next-${id}`,
+                    prevEl: `#prev-${id}`
+                }
+            });
+        });
+
+        // Tooltip del logo
+        const logo = document.getElementById('logo-navbar');
+        const tooltip = document.getElementById('logo-tooltip');
+        let hoverTimer;
+
+        if (logo && tooltip) {
+            logo.addEventListener('mouseenter', () => {
+                hoverTimer = setTimeout(() => {
+                    tooltip.classList.add('active');
+                }, 1000);
+            });
+            logo.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimer);
+                tooltip.classList.remove('active');
+            });
+            // Solo cerrar si el click es FUERA del logo grande
+            tooltip.addEventListener('click', (e) => {
+                if (e.target === tooltip) {
+                    tooltip.classList.remove('active');
+                }
+            });
+        }
+
+
     });
 </script>
 
-
+<!-- Logo tooltip: inicialmente oculto, debe ir al final del body -->
+<div id="logo-tooltip">
+    <div class="logo-tooltip-content">
+        <img src="images/logo-deptos-leloir.png" alt="Logo grande" />
+    </div>
+</div>
 </body>
 </html>
