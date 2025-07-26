@@ -178,12 +178,14 @@
             <div class="swiper-slide"><img src="images/depto1-8.jpeg" alt="Depto 1 Foto 9" /></div>
             <div class="swiper-slide"><img src="images/depto1-9.jpeg" alt="Depto 1 Foto 10" /></div>
         </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
 
     <p>Departamento moderno y totalmente amoblado. WiFi, aire acondicionado, cocina equipada.</p>
 
     <!-- Mapa -->
-    <div class="ratio ratio-16x9 mb-3">
+    <div class="ratio ratio-16x9 mb-3 w-75 mx-auto">
         <iframe src="https://www.google.com/maps?q=-26.82414,-65.2226&z=17&output=embed" allowfullscreen></iframe>
     </div>
 
@@ -240,42 +242,16 @@
             textElement.textContent = frases[index];
         }, 3000);
 
-        // Opiniones Swiper
-        new Swiper(".opiniones-swiper", {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false
-            },
-            pagination: {
-                el: ".swiper-pagination",       // <-- AGREGADO
-                clickable: true,               // <-- AGREGADO
-            },
-            // Si querés botones de navegación también (opcional)
-            navigation: {
-                nextEl: ".swiper-button-next", // si pusieras botones
-                prevEl: ".swiper-button-prev",
-            },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                992: { slidesPerView: 3 }
-            }
-        });
 
-        // Swipers de departamentos
-        [1, 2].forEach(id => {
-            new Swiper(`#swiper-${id}`, {
+        document.querySelectorAll('.depto-swiper').forEach(function(swiperEl){
+            new Swiper(swiperEl, {
                 loop: true,
                 navigation: {
-                    nextEl: `#next-${id}`,
-                    prevEl: `#prev-${id}`
+                    nextEl: swiperEl.querySelector('.swiper-button-next'),
+                    prevEl: swiperEl.querySelector('.swiper-button-prev')
                 }
             });
         });
-
-        // Ya NO hay tooltip ni zoom para el logo.
     });
 </script>
 </body>
