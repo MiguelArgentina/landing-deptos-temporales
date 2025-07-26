@@ -4,19 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Departamento - Laprida 123</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            max-width: 100%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding-top: 80px;
+            background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.9)),
+            url('images/patagonia-argentina-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        @media (max-width: 575.98px) {
+            body {
+                padding-top: 160px; /* Ajusta este valor según la altura de tu navbar en móvil */
+            }
+        }
+
+        .image-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-top-left-radius: 0.375rem;
+            border-top-right-radius: 0.375rem;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .opiniones-swiper .swiper-wrapper {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .opiniones-swiper .swiper-slide {
+            flex: 0 0 auto;
+            min-width: 250px;
+            max-width: 100%;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .container,
+        .row,
+        .col-12,
+        .col-md-6 {
+            max-width: 100%;
+        }
+
+        footer img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .navbar .nav-link i {
+            color: #25d366;
+        }
+
+        @media (max-width: 768px) {
+            #rotating-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar .container-fluid {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .container-fluid > * {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar .container-fluid img {
+                height: 50px;
+                margin-bottom: 0.5rem;
+            }
+
+            .navbar .nav-link {
+                justify-content: center;
+            }
+
+            .navbar .container-fluid > a,
+            .navbar .container-fluid > div {
+                margin-bottom: 0.25rem;
+            }
+
+            .list-inline {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .list-inline-item {
+                width: 45%;
+                text-align: center;
+            }
+        }
+
+        /* Asegura que el pie no se corte */
+        footer {
+            overflow-x: hidden;
+        }
+
+        /* Asegura que el desarrollador se vea en móviles */
+        footer p.text-center {
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        .navbar .fa-whatsapp::before {
+            content: "\f232"; /* Unicode de WhatsApp FA */
+            font-size: 1em !important;
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+        }
+    </style>
 </head>
 <body>
+<!-- NAVBAR -->
+<nav class="navbar border-bottom py-2 fixed-top w-100 shadow-sm backdrop-blur">
+    <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap px-3">
+        <div class="px-2 rounded mb-2 mb-md-0">
+            <a href="index.html" style="display:inline-block;">
+                <img id="logo-navbar" src="images/logo-deptos-leloir.png" alt="Mis Departamentos" height="90" style="cursor:pointer;" />
+            </a>
+        </div>
+        <div class="text-center flex-grow-1 px-2 mb-2 mb-md-0">
+            <span class="fw-medium text-dark" id="rotating-text">Administración</span>
+        </div>
+        <a href="https://wa.me/5493811234567" class="fs-6 nav-link text-dark d-flex align-items-center pe-3">
+            <i class="fab fa-whatsapp me-2 text-success"></i>Contacto
+        </a>
+    </div>
+</nav>
 
 <div class="container py-4">
     <h1 class="mb-3">📍 Laprida 123 - San Miguel de Tucumán</h1>
 
     <div class="swiper depto-swiper mb-4">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="images/depto1-1.jpg" class="img-fluid" alt="Foto 1"></div>
-            <div class="swiper-slide"><img src="images/depto1-2.jpg" class="img-fluid" alt="Foto 2"></div>
+            <div class="swiper-slide"><img src="images/depto1-0.jpeg" alt="Depto 1 Foto 1" /></div>
+            <div class="swiper-slide"><img src="images/depto1-1.jpeg" alt="Depto 1 Foto 2" /></div>
+            <div class="swiper-slide"><img src="images/depto1-2.jpeg" alt="Depto 1 Foto 3" /></div>
+            <div class="swiper-slide"><img src="images/depto1-3.jpeg" alt="Depto 1 Foto 4" /></div>
+            <div class="swiper-slide"><img src="images/depto1-4.jpeg" alt="Depto 1 Foto 5" /></div>
+            <div class="swiper-slide"><img src="images/depto1-5.jpeg" alt="Depto 1 Foto 6" /></div>
+            <div class="swiper-slide"><img src="images/depto1-6.jpeg" alt="Depto 1 Foto 7" /></div>
+            <div class="swiper-slide"><img src="images/depto1-7.jpeg" alt="Depto 1 Foto 8" /></div>
+            <div class="swiper-slide"><img src="images/depto1-8.jpeg" alt="Depto 1 Foto 9" /></div>
+            <div class="swiper-slide"><img src="images/depto1-9.jpeg" alt="Depto 1 Foto 10" /></div>
         </div>
     </div>
 
@@ -35,12 +195,87 @@
     </div>
 </div>
 
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+        <div class="row text-center text-md-start">
+            <div class="col-md-6 mb-3">
+                <h5>Contacto</h5>
+                <ul class="list-unstyled small">
+                    <li><i class="fas fa-envelope me-2"></i><a href="mailto:leloiramobladosneuquen@gmail.com" class="text-white text-decoration-none">leloiramobladosneuquen@gmail.com</a></li>
+                    <li><i class="fas fa-phone me-2"></i><a href="tel:+5492994524509" class="text-white text-decoration-none">+54 9 299 452 4509</a></li>
+                    <li><i class="fab fa-whatsapp me-2 text-success"></i><a href="https://wa.me/5492994524509" class="text-white text-decoration-none">+54 9 299 452 4509</a></li>
+                    <li><i class="fas fa-home me-2"></i>Leloir 929, Neuquén, Neuquén</li>
+                </ul>
+            </div>
+            <div class="col-md-6 mb-3">
+                <h5>Formas de Pago</h5>
+                <ul class="list-inline small">
+                    <li class="list-inline-item me-2"><i class="fas fa-money-bill-wave fa-lg"></i></li>
+                    <li class="list-inline-item me-2"><i class="fas fa-qrcode fa-lg"></i></li>
+                    <li class="list-inline-item me-2"><i class="fas fa-university fa-lg"></i></li>
+                    <li class="list-inline-item me-2">
+                        <img src="images/mercado-pago-pluma.svg" alt="Mercado Pago"  width="60" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="border-light my-3" />
+        <p class="text-center small mb-0">
+            Desarrollado por <a href="https://github.com/MiguelArgentina" class="text-white text-decoration-underline" target="_blank"><i class="fab fa-github"></i> Miguel Tucu Gomez</a>
+        </p>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    new Swiper('.depto-swiper', {
-        loop: true,
-        autoplay: { delay: 4000 },
-        slidesPerView: 1,
+    document.addEventListener("DOMContentLoaded", function () {
+        const frases = ["Administración", "Pague al ingresar", "Alquiler temporal", "Limpieza incluida", "Pague al ingresar", "Gestión profesional", "Pague al ingresar", "Sin intermediarios"];
+        const textElement = document.getElementById("rotating-text");
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % frases.length;
+            textElement.textContent = frases[index];
+        }, 3000);
+
+        // Opiniones Swiper
+        new Swiper(".opiniones-swiper", {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: ".swiper-pagination",       // <-- AGREGADO
+                clickable: true,               // <-- AGREGADO
+            },
+            // Si querés botones de navegación también (opcional)
+            navigation: {
+                nextEl: ".swiper-button-next", // si pusieras botones
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                992: { slidesPerView: 3 }
+            }
+        });
+
+        // Swipers de departamentos
+        [1, 2].forEach(id => {
+            new Swiper(`#swiper-${id}`, {
+                loop: true,
+                navigation: {
+                    nextEl: `#next-${id}`,
+                    prevEl: `#prev-${id}`
+                }
+            });
+        });
+
+        // Ya NO hay tooltip ni zoom para el logo.
     });
 </script>
 </body>
